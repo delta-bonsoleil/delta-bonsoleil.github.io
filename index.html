@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DELTA - bonsoleil ヘルシンキ方面部隊別働隊</title>
     <meta name="description" content="DELTA - bonsoleil ヘルシンキ方面部隊別働隊。本隊から離れ、独自の作戦を遂行する。">
     <meta property="og:title" content="DELTA - bonsoleil ヘルシンキ方面部隊別働隊">
@@ -808,7 +808,8 @@
 #chat-send:hover { box-shadow: 0 0 12px var(--glow-gold); }
 #chat-send:disabled { background: #333; box-shadow: none; }
 @media (max-width: 768px) {
-  #chat-box { width: calc(100vw - 32px); right: 16px; bottom: 16px; height: 420px; }
+  #chat-box { width: 100vw; height: 100dvh; right: 0; bottom: 0; top: 0; left: 0; border: none; border-radius: 0; box-shadow: none; }
+  #chat-input { font-size: 16px; }
   #chat-fab { bottom: 20px; right: 16px; width: 68px; height: 68px; }
 }
 </style>
@@ -837,6 +838,7 @@ function toggleChat() {
   chatOpen = !chatOpen;
   document.getElementById('chat-box').classList.toggle('open', chatOpen);
   document.getElementById('chat-fab').classList.toggle('hidden', chatOpen);
+  document.body.style.overflow = chatOpen ? 'hidden' : '';
   if (chatOpen) document.getElementById('chat-input').focus();
 }
 
