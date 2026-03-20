@@ -838,7 +838,7 @@ function toggleChat() {
   chatOpen = !chatOpen;
   document.getElementById('chat-box').classList.toggle('open', chatOpen);
   document.getElementById('chat-fab').classList.toggle('hidden', chatOpen);
-  document.body.style.overflow = chatOpen ? 'hidden' : '';
+  if (window.innerWidth <= 768) document.body.style.overflow = chatOpen ? 'hidden' : '';
   if (chatOpen) document.getElementById('chat-input').focus();
 }
 
