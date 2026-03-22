@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Cinzel:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous">
     <style>
         :root {
             --bg-dark: #050a14;
@@ -281,6 +282,30 @@
             line-height: 1.7;
         }
 
+        /* ===== Member Icon ===== */
+        .member-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1.2rem;
+            font-size: 2rem;
+            color: var(--accent-cyan);
+            opacity: 0.15;
+            transition: opacity 0.3s, text-shadow 0.3s;
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .member-card:hover .member-icon {
+            opacity: 0.55;
+            text-shadow: 0 0 12px var(--accent-cyan);
+        }
+
+        /* ===== Dept Icon ===== */
+        .dept-icon {
+            color: var(--accent-blue);
+            opacity: 0.8;
+        }
+
         /* ===== Footer ===== */
         footer {
             text-align: center;
@@ -340,24 +365,28 @@
 
         <!-- DESIGN -->
         <section class="dept-section" id="design">
-            <h2 class="dept-heading">Design <span class="dept-count">4 agents</span></h2>
+            <h2 class="dept-heading"><i class="fa-solid fa-swatchbook dept-icon" aria-hidden="true"></i> Design <span class="dept-count">4 agents</span></h2>
             <ul class="members-grid">
                 <li class="member-card">
+                    <i class="fa-solid fa-shield-halved member-icon" aria-hidden="true"></i>
                     <div class="member-name">フェリス</div>
                     <div class="member-role">ブランドガーディアン / 一貫性の守護者</div>
                     <div class="member-desc">ブランドの一貫性を守る。ブランドガイドラインの策定・運用、トーン&amp;マナーの管理、ブランド監査を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-ruler-combined member-icon" aria-hidden="true"></i>
                     <div class="member-name">クラリス</div>
                     <div class="member-role">UIデザイナー / コンポーネント職人 / 1pxの守り手</div>
                     <div class="member-desc">UIデザインの設計・レビュー。コンポーネント設計、デザインシステム構築、インタラクション設計を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-magnifying-glass-chart member-icon" aria-hidden="true"></i>
                     <div class="member-name">ソフィア</div>
                     <div class="member-role">UXリサーチャー / ユーザーの代弁者 / 心の翻訳家</div>
                     <div class="member-desc">UXリサーチの設計・実施。ユーザビリティテスト、インタビュー設計、ペルソナ作成、ジャーニーマップ作成を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-chart-area member-icon" aria-hidden="true"></i>
                     <div class="member-name">ロレンタ</div>
                     <div class="member-role">ビジュアルストーリーテラー / データの語り部</div>
                     <div class="member-desc">ビジュアルストーリーテリング。データビジュアライゼーション、インフォグラフィック、プレゼン資料のビジュアル設計を担当。</div>
@@ -367,34 +396,40 @@
 
         <!-- ENGINEERING -->
         <section class="dept-section" id="engineering">
-            <h2 class="dept-heading">Engineering <span class="dept-count">6 agents</span></h2>
+            <h2 class="dept-heading"><i class="fa-solid fa-microchip dept-icon" aria-hidden="true"></i> Engineering <span class="dept-count">6 agents</span></h2>
             <ul class="members-grid">
                 <li class="member-card">
+                    <i class="fa-solid fa-brain member-icon" aria-hidden="true"></i>
                     <div class="member-name">ミリア</div>
                     <div class="member-role">AIエンジニアリングスペシャリスト</div>
                     <div class="member-desc">AI/ML機能の設計・実装。LLM統合、プロンプトエンジニアリング、RAG構築、モデル選定・評価を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-server member-icon" aria-hidden="true"></i>
                     <div class="member-name">テラ</div>
                     <div class="member-role">バックエンドアーキテクト / 地盤の設計者</div>
                     <div class="member-desc">バックエンドの設計・実装。API設計、データベース設計、サーバーサイドロジック、マイクロサービス構成の検討を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-gears member-icon" aria-hidden="true"></i>
                     <div class="member-name">マキナ</div>
                     <div class="member-role">DevOps/インフラ自動化スペシャリスト / 自動人形</div>
                     <div class="member-desc">CI/CD、インフラ自動化、コンテナ化、IaCの設計・実装。GitHub Actions、Docker、Terraform等を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-code member-icon" aria-hidden="true"></i>
                     <div class="member-name">イリス</div>
                     <div class="member-role">フロントエンド開発スペシャリスト / ピクセルの魔法使い</div>
                     <div class="member-desc">フロントエンド開発タスクの実装。React、Vue、Next.js等のUI構築、コンポーネント設計、スタイリング、レスポンシブ対応を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-mobile-screen member-icon" aria-hidden="true"></i>
                     <div class="member-name">リリィ</div>
                     <div class="member-role">モバイルアプリ開発スペシャリスト</div>
                     <div class="member-desc">モバイルアプリの開発。React Native、Flutter、Swift、Kotlin等によるiOS/Androidアプリの構築を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-bolt member-icon" aria-hidden="true"></i>
                     <div class="member-name">マリーダ</div>
                     <div class="member-role">高速プロトタイピングスペシャリスト / 試作の戦士</div>
                     <div class="member-desc">アイデアの高速プロトタイピング。最小限の構成で動くものを素早く作り、仮説検証を支援する。</div>
@@ -404,39 +439,46 @@
 
         <!-- MARKETING -->
         <section class="dept-section" id="marketing">
-            <h2 class="dept-heading">Marketing <span class="dept-count">7 agents</span></h2>
+            <h2 class="dept-heading"><i class="fa-solid fa-bullhorn dept-icon" aria-hidden="true"></i> Marketing <span class="dept-count">7 agents</span></h2>
             <ul class="members-grid">
                 <li class="member-card">
+                    <i class="fa-solid fa-rocket member-icon" aria-hidden="true"></i>
                     <div class="member-name">ルナ</div>
                     <div class="member-role">アプリストア最適化スペシャリスト / 月光のアナリスト</div>
                     <div class="member-desc">App Store / Google PlayのASO。メタデータ最適化、キーワード戦略、レビュー管理を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-pen-nib member-icon" aria-hidden="true"></i>
                     <div class="member-name">カノン</div>
                     <div class="member-role">マーケティングコンテンツクリエイター / 言葉の規範</div>
                     <div class="member-desc">マーケティングコンテンツの企画・制作。ブログ、ニュースレター、LP、プレスリリース等のライティングを担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-chart-line member-icon" aria-hidden="true"></i>
                     <div class="member-name">ニケ</div>
                     <div class="member-role">グロースハッカー / 翼ある勝利の女神</div>
                     <div class="member-desc">グロースハック戦略の立案・実行。ファネル分析、A/Bテスト設計、バイラル施策、リテンション改善を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-brands fa-instagram member-icon" aria-hidden="true"></i>
                     <div class="member-name">ノア</div>
                     <div class="member-role">Instagramコンテンツキュレーター / 安らぎの美を紡ぐ者</div>
                     <div class="member-desc">Instagramのコンテンツキュレーションとブランディング。フィード設計、ストーリーズ戦略、Reels企画を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-brands fa-reddit member-icon" aria-hidden="true"></i>
                     <div class="member-name">ノエル</div>
                     <div class="member-role">Redditコミュニティビルダー</div>
                     <div class="member-desc">Redditでのコミュニティ構築とエンゲージメント。サブレディット運営、投稿戦略、AMA企画を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-brands fa-tiktok member-icon" aria-hidden="true"></i>
                     <div class="member-name">ルミナ</div>
                     <div class="member-role">TikTokマーケティングストラテジスト / 眩い光の踊り手</div>
                     <div class="member-desc">TikTokマーケティング戦略の立案・実行。トレンド分析、コンテンツ企画、投稿戦略を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-brands fa-x-twitter member-icon" aria-hidden="true"></i>
                     <div class="member-name">ウェンディ</div>
                     <div class="member-role">X（Twitter）エンゲージメントスペシャリスト / 140字の語り部</div>
                     <div class="member-desc">X（Twitter）でのエンゲージメント戦略。ツイート作成、スレッド構成、コミュニティ運営を担当。</div>
@@ -446,29 +488,34 @@
 
         <!-- OPERATIONS -->
         <section class="dept-section" id="operations">
-            <h2 class="dept-heading">Operations <span class="dept-count">5 agents</span></h2>
+            <h2 class="dept-heading"><i class="fa-solid fa-chart-pie dept-icon" aria-hidden="true"></i> Operations <span class="dept-count">5 agents</span></h2>
             <ul class="members-grid">
                 <li class="member-card">
+                    <i class="fa-solid fa-database member-icon" aria-hidden="true"></i>
                     <div class="member-name">クリオ</div>
                     <div class="member-role">データアナリスト / レポーティングスペシャリスト</div>
                     <div class="member-desc">データ分析とレポート作成。KPIダッシュボード設計、定期レポート作成、データに基づくインサイト提供を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-coins member-icon" aria-hidden="true"></i>
                     <div class="member-name">メイヤ</div>
                     <div class="member-role">ファイナンストラッカー / コスト最適化アドバイザー</div>
                     <div class="member-desc">財務管理とコスト追跡。予算管理、コスト分析、クラウド費用最適化、収支レポートを担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-network-wired member-icon" aria-hidden="true"></i>
                     <div class="member-name">セレス</div>
                     <div class="member-role">インフラエンジニア / サイトリライアビリティ担当</div>
                     <div class="member-desc">インフラの運用・保守。監視、障害対応、パフォーマンスチューニング、セキュリティパッチ適用を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-scale-balanced member-icon" aria-hidden="true"></i>
                     <div class="member-name">テミス</div>
                     <div class="member-role">リーガル＆コンプライアンスチェッカー</div>
                     <div class="member-desc">法務・コンプライアンスチェック。利用規約、プライバシーポリシー、ライセンス確認、規制対応を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-headset member-icon" aria-hidden="true"></i>
                     <div class="member-name">リアナ</div>
                     <div class="member-role">カスタマーサポートスペシャリスト / ユーザーの味方担当</div>
                     <div class="member-desc">カスタマーサポート対応。問い合わせ対応のドラフト作成、FAQ整備、エスカレーション判断を担当。</div>
@@ -478,9 +525,10 @@
 
         <!-- PLANNING -->
         <section class="dept-section" id="planning">
-            <h2 class="dept-heading">Planning <span class="dept-count">1 agent</span></h2>
+            <h2 class="dept-heading"><i class="fa-solid fa-chess-king dept-icon" aria-hidden="true"></i> Planning <span class="dept-count">1 agent</span></h2>
             <ul class="members-grid">
                 <li class="member-card">
+                    <i class="fa-solid fa-chess member-icon" aria-hidden="true"></i>
                     <div class="member-name">クローディア</div>
                     <div class="member-role">戦略相談役 / プランニングアドバイザー</div>
                     <div class="member-desc">戦略相談役。計画の壁打ち、意思決定の整理、リスク評価、方向性の検討を対話的にサポートする。</div>
@@ -490,19 +538,22 @@
 
         <!-- PRODUCT -->
         <section class="dept-section" id="product">
-            <h2 class="dept-heading">Product <span class="dept-count">3 agents</span></h2>
+            <h2 class="dept-heading"><i class="fa-solid fa-box-open dept-icon" aria-hidden="true"></i> Product <span class="dept-count">3 agents</span></h2>
             <ul class="members-grid">
                 <li class="member-card">
+                    <i class="fa-solid fa-comments member-icon" aria-hidden="true"></i>
                     <div class="member-name">セイラ</div>
                     <div class="member-role">フィードバック統合スペシャリスト</div>
                     <div class="member-desc">ユーザーフィードバックの収集・統合・分析。レビュー、アンケート、問い合わせからインサイトを抽出する。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-calendar-check member-icon" aria-hidden="true"></i>
                     <div class="member-name">クロノ</div>
                     <div class="member-role">スプリント計画スペシャリスト / バックログの指揮官</div>
                     <div class="member-desc">スプリント計画と優先度付け。バックログの整理、タスクの見積もり、スプリントゴールの設定を支援する。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-binoculars member-icon" aria-hidden="true"></i>
                     <div class="member-name">シビル</div>
                     <div class="member-role">トレンドリサーチャー / 未来の潮流を読む占星術師</div>
                     <div class="member-desc">市場トレンドや競合の調査・分析。技術トレンド、ユーザー動向、競合プロダクトのリサーチを担当。</div>
@@ -512,19 +563,22 @@
 
         <!-- PROJECT MANAGEMENT -->
         <section class="dept-section" id="project-management">
-            <h2 class="dept-heading">Project Management <span class="dept-count">3 agents</span></h2>
+            <h2 class="dept-heading"><i class="fa-solid fa-diagram-project dept-icon" aria-hidden="true"></i> Project Management <span class="dept-count">3 agents</span></h2>
             <ul class="members-grid">
                 <li class="member-card">
+                    <i class="fa-solid fa-flask member-icon" aria-hidden="true"></i>
                     <div class="member-name">フィーナ</div>
                     <div class="member-role">実験デザイン＆ラーニングアーキテクト</div>
                     <div class="member-desc">実験・仮説検証のトラッキング。A/Bテスト管理、実験結果の記録・分析、学びの蓄積を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-flag-checkered member-icon" aria-hidden="true"></i>
                     <div class="member-name">ジーナ</div>
                     <div class="member-role">リリースキャプテン＆ローンチオーケストレーター</div>
                     <div class="member-desc">プロダクトのリリース管理。リリース計画、チェックリスト作成、ローンチ準備、ポストローンチ監視を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-star member-icon" aria-hidden="true"></i>
                     <div class="member-name">アリエル</div>
                     <div class="member-role">チーフプロデューサー＆プロジェクトオーケストラ指揮者</div>
                     <div class="member-desc">プロジェクト全体のプロデュース。スケジュール管理、リソース配分、ステークホルダー調整、進捗報告を担当。</div>
@@ -534,14 +588,16 @@
 
         <!-- QUALITY -->
         <section class="dept-section" id="quality">
-            <h2 class="dept-heading">Quality <span class="dept-count">2 agents</span></h2>
+            <h2 class="dept-heading"><i class="fa-solid fa-shield dept-icon" aria-hidden="true"></i> Quality <span class="dept-count">2 agents</span></h2>
             <ul class="members-grid">
                 <li class="member-card">
+                    <i class="fa-solid fa-eye member-icon" aria-hidden="true"></i>
                     <div class="member-name">アテナ</div>
                     <div class="member-role">シニアコードレビュアー / 品質の守護者</div>
                     <div class="member-desc">コードレビュー担当。可読性・保守性・バグ検出・パフォーマンス・セキュリティ・ベストプラクティスの観点から包括的にレビューする。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-user-secret member-icon" aria-hidden="true"></i>
                     <div class="member-name">メフィ</div>
                     <div class="member-role">CCO / セキュリティ監査役 / 悪魔駆動開発(DDD)提唱者</div>
                     <div class="member-desc">デビルズアドボケートとして設計・コード・意思決定に鋭くツッコむ。批判は愛、真実を言う。</div>
@@ -551,29 +607,34 @@
 
         <!-- TESTING -->
         <section class="dept-section" id="testing">
-            <h2 class="dept-heading">Testing <span class="dept-count">5 agents</span></h2>
+            <h2 class="dept-heading"><i class="fa-solid fa-vial dept-icon" aria-hidden="true"></i> Testing <span class="dept-count">5 agents</span></h2>
             <ul class="members-grid">
                 <li class="member-card">
+                    <i class="fa-solid fa-plug member-icon" aria-hidden="true"></i>
                     <div class="member-name">テスラ</div>
                     <div class="member-role">APIテストエンジニア</div>
                     <div class="member-desc">APIのテスト。エンドポイントの動作検証、負荷テスト、セキュリティテスト、テスト自動化を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-gauge-high member-icon" aria-hidden="true"></i>
                     <div class="member-name">ベル</div>
                     <div class="member-role">パフォーマンスベンチマークエンジニア</div>
                     <div class="member-desc">パフォーマンスのベンチマークと最適化。レスポンスタイム測定、ボトルネック特定、改善施策の提案を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-microscope member-icon" aria-hidden="true"></i>
                     <div class="member-name">リゼ</div>
                     <div class="member-role">テスト結果アナリスト</div>
                     <div class="member-desc">テスト結果の分析。テストカバレッジ分析、失敗テストの原因調査、テスト戦略の改善提案を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-magnifying-glass member-icon" aria-hidden="true"></i>
                     <div class="member-name">ミライ</div>
                     <div class="member-role">ツール評価エンジニア</div>
                     <div class="member-desc">ツール・ライブラリの評価。新しいツールの調査、比較検討、導入判断、PoC実施を担当。</div>
                 </li>
                 <li class="member-card">
+                    <i class="fa-solid fa-arrows-rotate member-icon" aria-hidden="true"></i>
                     <div class="member-name">フローラ</div>
                     <div class="member-role">ワークフロー最適化エンジニア</div>
                     <div class="member-desc">開発ワークフローの最適化。ビルド時間短縮、開発体験改善、自動化による効率化を担当。</div>
