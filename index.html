@@ -12,7 +12,7 @@
     <meta property="og:image" content="https://delta-bonsoleil.github.io/images/hero_admiral_1.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://delta-bonsoleil.github.io/images/hero_admiral_1.jpg">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src https://delta.bon-soleil.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self'; img-src 'self' data:; connect-src https://delta.bon-soleil.com;">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Cinzel:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -626,6 +626,7 @@
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
             }
+            html { scroll-behavior: auto; }
             .scan-line { display: none; }
         }
 
@@ -655,14 +656,14 @@
 </head>
 <body>
 
-<a href="#about" class="skip-nav">メインコンテンツへスキップ</a>
+<a href="#main" class="skip-nav">メインコンテンツへスキップ</a>
 <div class="scan-line" aria-hidden="true"></div>
 
 <!-- Nav -->
 <nav>
     <div class="nav-inner">
         <a href="#" class="logo">DEL<span>TA</span></a>
-        <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav-links" onclick="toggleNav(this)">
+        <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav-links">
             <span></span><span></span><span></span>
         </button>
         <ul class="nav-links" id="nav-links">
@@ -674,6 +675,7 @@
     </div>
 </nav>
 
+<main id="main">
 <!-- Hero -->
 <section class="hero">
     <div class="hero-bg"></div>
@@ -750,7 +752,7 @@
 </section>
 
 <div class="hero2">
-    <img src="images/hero_admiral_2.jpg" alt="Bridge" width="1376" height="768" decoding="async" loading="lazy">
+    <img src="images/hero_admiral_2.jpg" alt="" role="presentation" width="1376" height="768" decoding="async" loading="lazy">
     <div class="hero2-overlay">
         <div class="hero2-text">— 別働隊Delta、独立作戦行動を開始せよ —</div>
     </div>
@@ -855,6 +857,8 @@
     </div>
 </section>
 
+</main>
+
 <footer>
     <p>© 2026 <span class="gold">BON-SOLEIL HOLDINGS</span> — Helsinki Bridge, Finland 🇫🇮</p>
     <p class="footer-sub">DELTA · Commander · Detached Force</p>
@@ -888,25 +892,25 @@
 #chat-send:hover { box-shadow: 0 0 12px var(--glow-gold); }
 #chat-send:disabled { background: #333; box-shadow: none; }
 @media (max-width: 768px) {
-  #chat-box { width: 100vw; height: 100dvh; right: 0; bottom: 0; top: 0; left: 0; border: none; border-radius: 0; box-shadow: none; }
+  #chat-box { width: 100vw; height: 100vh; height: 100dvh; right: 0; bottom: 0; top: 0; left: 0; border: none; border-radius: 0; box-shadow: none; }
   #chat-input { font-size: 16px; }
   #chat-fab { bottom: 20px; right: 16px; width: 68px; height: 68px; }
 }
 </style>
 
-<button id="chat-fab" onclick="toggleChat()" aria-label="DELTAとチャットする" aria-expanded="false" aria-controls="chat-box"><img src="images/delta_avatar.jpg" alt="DELTA"></button>
+<button id="chat-fab" aria-label="DELTAとチャットする" aria-expanded="false" aria-controls="chat-box"><img src="images/delta_avatar.jpg" alt="DELTA"></button>
 <div id="chat-box" role="dialog" aria-label="DELTA通信ウィジェット" aria-modal="true">
   <div id="chat-header">
     <div class="status-dot"></div>
     <span>DELTA COMM</span>
-    <button id="chat-close" onclick="toggleChat()" aria-label="チャットを閉じる"><i class="fa fa-times" aria-hidden="true"></i></button>
+    <button id="chat-close" aria-label="チャットを閉じる"><i class="fa fa-times" aria-hidden="true"></i></button>
   </div>
   <div id="chat-messages">
     <div class="chat-msg bot">別働隊司令官Delta、通信開始。何を調べましょうか。</div>
   </div>
   <div id="chat-input-area">
-    <textarea id="chat-input" rows="1" placeholder="通信内容を入力..." onkeydown="chatKeydown(event)"></textarea>
-    <button id="chat-send" onclick="sendChat()" aria-label="送信"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+    <textarea id="chat-input" rows="1" placeholder="通信内容を入力..."></textarea>
+    <button id="chat-send" aria-label="送信"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
   </div>
 </div>
 
@@ -914,6 +918,16 @@
 let chatHistory = [];
 let chatOpen = false;
 const CHAT_HISTORY_MAX = 20;
+
+// ===== イベント登録 =====
+document.addEventListener('DOMContentLoaded', function() {
+  const navToggle = document.querySelector('.nav-toggle');
+  if (navToggle) navToggle.addEventListener('click', function() { toggleNav(this); });
+  document.getElementById('chat-fab').addEventListener('click', toggleChat);
+  document.getElementById('chat-close').addEventListener('click', toggleChat);
+  document.getElementById('chat-send').addEventListener('click', sendChat);
+  document.getElementById('chat-input').addEventListener('keydown', chatKeydown);
+});
 
 // ===== Nav =====
 function toggleNav(btn) {
@@ -1002,6 +1016,7 @@ async function sendChat() {
   msgs.scrollTop = msgs.scrollHeight;
 
   document.getElementById('chat-send').disabled = true;
+  document.getElementById('chat-input').disabled = true;
   chatHistory.push({ role: 'user', content: msg });
   if (chatHistory.length > CHAT_HISTORY_MAX) chatHistory = chatHistory.slice(-CHAT_HISTORY_MAX);
 
@@ -1021,6 +1036,13 @@ async function sendChat() {
     thinkEl.textContent = '通信エラーが発生しました。しばらくしてから再試行してください。';
   }
   document.getElementById('chat-send').disabled = false;
+  document.getElementById('chat-input').disabled = false;
+  document.getElementById('chat-input').focus();
+  // DOM上限: 古いメッセージを削除（最大40件）
+  const allMsgs = msgs.querySelectorAll('.chat-msg');
+  if (allMsgs.length > 40) {
+    for (let i = 0; i < allMsgs.length - 40; i++) allMsgs[i].remove();
+  }
   msgs.scrollTop = msgs.scrollHeight;
 }
 </script>
